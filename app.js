@@ -1,5 +1,19 @@
 var app = angular.module('flapperNews', [])
 
+app.module('flapperNews'.['ui.router']).config([
+	'$stateProvider',
+	'$urlRouterProvider',
+	function($stateProvider, $urlRouterProvider){
+		$stateProvider.state('home',{
+			url:'/home',
+			templateUrl: '/home.html',
+			controller: 'MainCtrl'
+		});
+
+		$urlRouterProvider.otherwise('home')
+	
+	}]);
+
 app.controller('MainCtrl', ['$scope','posts',function($scope,posts){
 	
 	$scope.test = 'Hello world!';
